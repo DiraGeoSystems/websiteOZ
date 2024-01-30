@@ -388,6 +388,12 @@
     </div>
 </section>
 
+<style>
+    .additional-gap {
+        margin-bottom: 100px; /* Adjust the value as needed */
+    }
+</style>
+
 <section id="contact" class="box mt-5">
     <div class="container" id="contact">
         <div class="row">
@@ -397,28 +403,28 @@
             </div>
             
             <!-- First Address Column -->
-            <div class="col-lg-6 mb-6 text-center">
+            <div class="col-lg-6 mb-4 text-center">
                 <!-- Add content for the second address here -->
-                <p>Dira GeoSystems (Australian branch)<br>PO Box XX<br>Manly QLD 4179<br>Australia</p>
-                <p><a href="tel:(+61)0466918366">(+61) 0466 918 366</a></p>
+                <p>Dira GeoSystems<br>Brisbane, Australia</p>
+                <p><a href="tel:(+61)0494066467">(+61) 0494 066 467</a></p>
             </div>           
 
             <!-- Second Address Column -->
-            <div class="col-lg-6 mb-6 text-center">
-                <p>Dira GeoSystems AG<br>c/o Impact Hub Zürich AG<br>Viaduktstrasse 93-95<br>CH-8005 Zürich<br>Switzerland</p>
+            <div class="col-lg-6 mb-4 text-center">
+                <p>Dira GeoSystems<br>Zurich, Switzerland</p>
                 <p><a href="tel:+41442448442">+41 44 244 84 42</a></p>
             </div>
 
             <!-- Centered Divider -->
-            <div class="col-12 text-center mb-4">
-                <ul class="mb-6">
+            <div class="col-12 text-center pb-4">
+                <p>We are best reached by email:<br><a href="mailto:hello@dirageosystems.com.au">hello@dirageosystems.com.au</a></p>
+                <ul class="mb-6 additional-gap">
                     <!--<li><a href="#"><img src="dist/img/icons/facebook.svg" alt="Facebook" height="25" width="25"></a></li>-->
                     <!--<li><a href="#"><img src="dist/img/icons/instagram.svg" alt="Instagram" height="25" width="25"></a></li>-->
                     <!--<li><a href="#"><img src="dist/img/icons/pinterest.svg" alt="Pinterest" height="25" width="25"></a></li>-->
                     <li><a href="https://ch.linkedin.com/company/dira-geosystems"><img src="dist/img/icons/linkedin.svg" alt="LinkedIn" height="25" width="25"></a></li>
                     <li><a href="https://github.com/dirageosystems"><img src="dist/img/icons/github-mark.svg" alt="GitHub" height="32" width="32"></a></li>
                 </ul>
-                <p>We are best reached by email:<br><a href="mailto:hello@dirageosystems.com.au">hello@dirageosystems.com.au</a></p>
                 <h3 id="partnerEn" class="lang-en">Dira partners with Esri</h3>
                 <p><img class="rounded-circle" src="dist/img/team/esri-startup-partner-320.png"
                     alt="Esri Startup Partner" height="140" width="140"><br>
@@ -483,7 +489,7 @@
 
             <div class="col-lg-3">
                 <p><a href="mailto:hello@dirageosystems.com.au">hello@dirageosystems.com.au</a></p>
-                <p><a href="tel:+41442448442">+41 44 244 84 42</a></p>
+                <p><a href="tel:(+61)0494066467">(+61) 0494 066 467</a></p>
             </div>
 
             <div class="col-lg-3 offset-lg-3">
@@ -499,18 +505,37 @@
 <script src="dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    const menuItems = document.querySelectorAll('.navbar-nav .nav-item');
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuItems = document.querySelectorAll('.navbar-nav .nav-link');
 
-    // Add click event listeners to each menu item
-    menuItems.forEach(item => {
-        item.addEventListener('click', function () {
-            // Remove the "active" class from all menu items
-            menuItems.forEach(i => i.classList.remove('active'));
+        // Initially underline "Dira"
+        menuItems.forEach(item => {
+            if (item.textContent.trim() === 'Dira') {
+                item.parentElement.classList.add('active');
+            }
+        });
 
-            // Add the "active" class to the clicked menu item
-            item.classList.add('active');
+        // Add click event listeners to each menu item
+        menuItems.forEach(item => {
+            item.addEventListener('click', function () {
+                // Remove the "active" class from all menu items
+                menuItems.forEach(i => i.parentElement.classList.remove('active'));
+
+                // Add the "active" class to the parent li of the clicked menu item
+                item.parentElement.classList.add('active');
+
+                // If the clicked menu item is not "Dira", remove the "active" class from the "Dira" menu
+                if (item.textContent.trim() !== 'Dira') {
+                    document.querySelector('.nav-link:contains("Dira")').parentElement.classList.remove('active');
+                }
+            });
         });
     });
+
+    // Custom jQuery-like :contains selector
+    jQuery.expr[':'].contains = function(a, i, m) {
+        return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0;
+    };
 </script>
 
 </body>
