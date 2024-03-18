@@ -3,7 +3,7 @@
 
 It “lives” in a Git repository, is statically generated
 (well, at present really just statically created), and
-online at <https://dirageosystems.ch> since December 2021.
+online at <https://dirageosystems.com.au> since January 2024.
 
 In 2023 we contracted dreamis.ch to redesign the website.
 It now uses Bootstrap (no longer W3CSS) and the custom CSS
@@ -22,9 +22,9 @@ straight from the GitHub repository. Things to consider:
 - need empty file *docs/.nojekyll* to disable Jekyll
 - turned on “Enforce HTTPS”: HTTP requests get a 301
   (permanent redirect) to HTTPS; good
-- configured the custom subdomain `www.dirageosystems.ch` and the
-  custom apex domain `dirageosystems.ch`; a DNS CNAME record points
-  `www.dirageosystems.ch` to `dirageosystems.github.io` and several
+- configured the custom subdomain `www.dirageosystems.com.au` and the
+  custom apex domain `dirageosystems.com.au`; a DNS CNAME record points
+  `www.dirageosystems.com.au` to `dirageosystems.github.io` and several
   DNS A records point `dirageosystems.github.io` to the GitHub servers
 - read the GitHub Pages docs about custom domains
 
