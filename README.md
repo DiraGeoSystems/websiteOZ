@@ -1,5 +1,5 @@
-
-This Website moved to the https://github.com/DiraGeoSystems/websiteAU repo - a synced for of the "website" repo
+> [!CAUTION]
+> This Website moved to the https://github.com/DiraGeoSystems/websiteAU repo - a synced for of the "website" repo
 
 # The Dira Website
 
